@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  id          String   @id @default(cuid())
+  certNumber  String   @unique
+  cardName    String
+  cardSet     String
+  cardNumber  String
+  cardType    String
+  language    String   @default("JP")
+  year        String?
+  rarity      String?
+  imageFront  String?
+  imageBack   String?
+  status      String   @default("PENDING")
+  grade       Grade?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Grade {
+  id          String   @id @default(cuid())
+  cardId      String   @unique
+  card        Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  centering   Float
+  corners     Float
+  edges       Float
+  surface     Float
+  finalGrade  Float
+  gradeName   String
+  aiNotes     String?
+  gradedAt    DateTime @default(now())
+  gradedBy    String   @default("Manual")
+}

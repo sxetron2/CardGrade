@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #0f0f13;
+    --foreground: #f0f0f5;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .grade-badge {
+    @apply inline-flex items-center justify-center px-3 py-1 rounded-full font-bold text-sm;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:scale-[1.02] hover:shadow-lg;
+  }
+}
