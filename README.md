@@ -1,4 +1,4 @@
-# CardGrade Pro
+# CardGrade
 
 ระบบเกรดการ์ด Pokemon & One Piece มืออาชีพ พร้อม AI วิเคราะห์รูปการ์ด
 
